@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Echarts实现柏拉图</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<style>
+			.echartsFatherDiv{
+				width: 100%;
+				height:700px;
+				border: 1px solid #E0E0E0;
+			}
+			.echartsDiv{
+			height:550px;
+			width:80%;
+			margin:0 auto;
+			position: absolute;
+			left: 10%;
+		}
+		</style>
+	</head>
+	<body>
+		<h1 align="center">柏拉图生成工具</h1> 
+		
+		<div style="padding: 10px 100px 10px;">
+			<!--echarts信息模块-->
+			<form class="bs-example bs-example-form" role="form">
+				<div class="input-group">
+					<span class="input-group-addon">统计图标题:</span>
+					<input type="text" id="title" name="title" class="form-control" placeholder="如：不良事件统计图 等" value="">
+				</div>
+				<br>
+
+				<div class="input-group">
+					<span class="input-group-addon">柱状图名称:</span>
+					<input type="text" id="barName" name="barName" class="form-control" placeholder="如：月份、年份 等" value="">
+				</div>
+				<br>
+
+				<div class="input-group">
+					<span class="input-group-addon">柱状图单位:</span>
+					<input type="text" id="barUnit" name="barUnit" class="form-control" placeholder="如：百分比%、数量/例 等" value="">
+				</div>
+				<br>
+
+				<div class="input-group">
+					<span class="input-group-addon">折线图原点:</span>
+					&nbsp;&nbsp;
+					<input type="radio" name="sequenceRadio" value="0" checked="checked">从零开始&nbsp;&nbsp;
+					<input type="radio" name="sequenceRadio" value="">不从零开始&nbsp;&nbsp;
+				</div>
+				<br>
+
+				<div class="input-group">
+					<span class="input-group-addon">折线图名称:</span>
+					<input type="text" id="lineName" name="lineName" class="form-control" placeholder="如：月份、年份 等" value="">
+				</div>
+				<br>
+
+				<div class="input-group">
+					<span class="input-group-addon">折线图单位:</span>
+					<input type="text" id="lineUnit" name="lineUnit" class="form-control" placeholder="如：百分比%、数量/例 等" value="">
+				</div>
+				<br>
+			</form>  
+			<br> 
+			
+			<!--echarts数据模块-->
+			<div>
+				<div class="input-group">
+					<span class="input-group-addon">生成数据量:</span>
+					<input type="text" id="theSize" class="form-control" style="width: 150px;" value="5" size="3" maxlength="5"
+					 data-role="none" onkeyup="this.value=this.value.replace(/[^0-9]+/,'');" />
+					<button onclick="creatTheTable()" class="btn btn-success">生成表格</button>
+				</div> 
+				<br> 
+			</div> 
+			
+			<!--echarts数据列表模块-->
+			<div id="theTable"> 
+				<table style="text-align: center;" class="table-responsive">
+					<thead>
+						<th>x轴名称</th>
+						<th>柱状图数据</th>
+						<th>累计数据</th>
+						<th>折线图数据</th>
+					</thead>
+					<tbody id="tBody" name="tBody">
+						<!--这里添加数据信息-->
+					</tbody>
+				</table>
+				<br>
+				<button onclick="doFunc()" class="btn btn-primary">生成柏拉图</button>
+				<button onclick="testFunc()" class="btn btn-danger">测试</button> 
+				<button onclick="location.reload();" class="btn btn-success">重置</button>
+			</div>
+			<br>
+			 
+			<!--echarts显示模块-->
+			<div class='echartsFatherDiv'>
+				<br>
+				<div id='chart_1' class='echartsDiv'></div>
+			</div>  
+		</div>
+		<br>
+	
+		<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+		<script src='js/bootstrap.min.js'></script>
+		<script src='js/echarts.min.js'></script>
+		<script src='js/polato.js'></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#theTable").hide();
+			});
+		</script>
+
+	</body>
+</html>
