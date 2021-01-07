@@ -9,7 +9,7 @@
 
  
 演示图
-![各省走势图](www.graz.pub/echarts/plato/demo/demo.png)
+![各省走势图](http://www.graz.pub/echarts/plato/demo/demo.png)
 
  
 图表模板来自于 [echarts官网](https://www.echartsjs.com/zh/index.html)
